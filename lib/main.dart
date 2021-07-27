@@ -1,3 +1,4 @@
+import 'package:app_designs/screens/basic-design.dart';
 import 'package:flutter/material.dart';
  
 void main() => runApp(MyApp());
@@ -8,20 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: TempHomeScreen()
-    );
-  }
-}
-
-class TempHomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('Text 1'),
-        Text('Text 2'),
-      ],
+      initialRoute: 'basic_design',
+      routes: {
+        'basic_design':(_)=> BasicDesignScreen()
+      },
     );
   }
 }
