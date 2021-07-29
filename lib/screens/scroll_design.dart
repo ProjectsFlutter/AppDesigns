@@ -15,7 +15,7 @@ class ScrollScreen extends StatelessWidget {
 class _MainContend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(fontSize: 60.0, fontWeight: FontWeight.bold, color: Colors.white);
+    final textStyle = TextStyle(fontSize: 60.0, fontWeight: FontWeight.bold, color: Colors.white, decoration: TextDecoration.none);
         return SafeArea(
           bottom: false,
           child: Column(
