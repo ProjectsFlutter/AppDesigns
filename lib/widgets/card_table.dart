@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
  
 class CardTable extends StatelessWidget {
@@ -27,22 +29,30 @@ class _SigleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(15.0),
-      height: 150,
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(62, 66, 107, 0.7),
-        borderRadius: BorderRadius.circular(20.0)
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundColor: this.color,
-            child: Icon(this.icon, size: 50),
-            radius: 40,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: Container(
+            height: 150,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(62, 66, 107, 0.7),
+              borderRadius: BorderRadius.circular(20.0)
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  backgroundColor: this.color,
+                  child: Icon(this.icon, size: 50 , color: Colors.white),
+                  radius: 40,
+                ),
+                SizedBox(height: 20.0),
+                Text(this.text, style: TextStyle(fontWeight: FontWeight.bold, color: this.color, fontSize: 15.0))
+              ],
+            ),
           ),
-          SizedBox(height: 20.0),
-          Text(this.text, style: TextStyle(fontWeight: FontWeight.bold, color: this.color, fontSize: 15.0))
-        ],
+        ),
       ),
     );
   }
